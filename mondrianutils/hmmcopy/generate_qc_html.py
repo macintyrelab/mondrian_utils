@@ -64,11 +64,16 @@ def flag_outliers(df, upper_limit, lower_limit):
 
 
 def get_row_and_col(df):
-    information = df["cell_id"].split("-")
-    if len(information) == 4:
-        sample, library, row, col = information
-    else:
-        sample, library, row, col = information[0], "_".join(information[1:-2]), information[-2], information[-1]
+    parts = df["cell_id"].split('_')
+
+    library   = parts[0]                  # e.g. "DLP51"
+    rowcol    = parts[1]                  # e.g. "A10"
+
+    # row is the first character of rowcol
+    row = rowcol[0]
+    # column is the remainder
+    col = rowcol[1:]
+
     df["row"] = row
     df["col"] = col
     return df
