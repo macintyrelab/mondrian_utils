@@ -122,6 +122,7 @@ class CorrectReadCount(object):
         for read_v, mapp_v, gc_v in zip(reads, mapp, gc):
             assert read_v[0] == mapp_v[0] == gc_v[0], err_str
             assert read_v[1] == mapp_v[1] == gc_v[1], err_str
+            print(read_v[2], mapp_v[2], gc_v[2])
             assert read_v[2] == mapp_v[2] == gc_v[2], err_str
             assert read_v[3] == mapp_v[3] == gc_v[3], err_str
 
