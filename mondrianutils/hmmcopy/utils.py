@@ -44,7 +44,7 @@ def readcounter(
         exclude_list=None,
         ncores=16,
         mapping_quality_threshold=20,
-        window_size=500000
+        window_size=100000
 ):
     if ncores == 1:
         with ReadCounter(infile, outdir, window_size,
